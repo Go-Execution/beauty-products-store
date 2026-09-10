@@ -1,0 +1,40 @@
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    flex-wrap: wrap;
+}
+
+.filterBtn {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid transparent;
+    transition: var(--transition-smooth);
+}
+
+.filterBtn:hover {
+    color: var(--text-main);
+}
+
+.filterBtn.active {
+    color: var(--text-main);
+    border-bottom-color: var(--text-main);
+}
+
+.shopGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-bottom: 6rem;
+}
+
+.noProducts {
+    text-align: center;
+    color: var(--text-muted);
+    margin: 4rem 0;
+    font-size: 1.2rem;
+}

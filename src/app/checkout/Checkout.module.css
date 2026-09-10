@@ -1,0 +1,129 @@
+.checkoutContainer {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    margin-bottom: 6rem;
+    align-items: start;
+}
+
+.formSection {
+    margin-bottom: 3rem;
+}
+
+.formSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.fullWidth {
+    grid-column: 1 / -1;
+}
+
+.inputGroup label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.inputGroup input {
+    padding: 0.8rem;
+    border: 1px solid rgba(0,0,0,0.2);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.inputGroup input:focus {
+    border-color: var(--text-main);
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.orderSummary {
+    background-color: var(--white);
+    padding: 2.5rem;
+    position: sticky;
+    top: 100px;
+}
+
+.orderSummary h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.summaryItems {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding-bottom: 1rem;
+}
+
+.summaryItem {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.totalsRow {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+.finalTotal {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: var(--text-main);
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.successMessage {
+    text-align: center;
+    padding: 6rem 0;
+}
+
+.successMessage p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 900px) {
+    .checkoutContainer {
+        grid-template-columns: 1fr;
+    }
+    
+    .orderSummary {
+        position: static;
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+}

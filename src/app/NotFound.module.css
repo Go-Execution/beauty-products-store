@@ -1,0 +1,35 @@
+.notFoundContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+}
+
+.content {
+    max-width: 600px;
+    padding: 3rem;
+}
+
+.errorCode {
+    font-size: 8rem;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-family: var(--font-heading);
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
