@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useCart } from '@/context/CartContext';
 import styles from './Navbar.module.css';
 
@@ -39,7 +40,9 @@ export default function Navbar() {
           <Link href="/shop" onClick={closeMenu}>Shop</Link>
         </div>
         
-        <Link href="/" className={styles.logo} onClick={closeMenu}>Lumière</Link>
+        <Link href="/" className={styles.logo} onClick={closeMenu}>
+          <Image src="/assets/logo.png" alt="Baraka Logo" width={200} height={150} style={{ objectFit: 'contain', filter: 'drop-shadow(0px 4px 6px rgba(0,0,0,0.2))' }} />
+        </Link>
         
         <div className={styles.navIcons}>
           <Link href="/cart" aria-label="Cart" className={styles.iconBtn} style={{ position: 'relative' }}>

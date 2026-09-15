@@ -11,12 +11,12 @@ export interface Product {
 export const products: Product[] = [
   {
     id: '1',
-    name: 'Lumière No. 1',
+    name: 'Baraka No. 1',
     category: 'Fragrance',
     price: 120.00,
     image: '/assets/images/perfume.jpg',
     description: 'Eau de Parfum',
-    longDescription: 'Our signature fragrance. A delicate balance of floral top notes, a warm amber heart, and a lasting sandalwood base. Lumière No. 1 is designed to be your daily luxury.'
+    longDescription: 'Our signature fragrance. A delicate balance of floral top notes, a warm amber heart, and a lasting sandalwood base. Baraka No. 1 is designed to be your daily luxury.'
   },
   {
     id: '2',

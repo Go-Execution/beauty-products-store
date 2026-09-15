@@ -5,8 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Lumière | Pure Beauty",
-  description: "Discover pure, minimalist beauty with Lumière's exclusive range of luxury perfumes, creams, and artisanal soaps.",
+  title: "Baraka | Pure Beauty",
+  description: "Discover pure, minimalist beauty with Baraka's exclusive range of luxury perfumes, creams, and artisanal soaps.",
 };
 
 export default function RootLayout({

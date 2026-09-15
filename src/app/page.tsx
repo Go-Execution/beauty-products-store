@@ -14,7 +14,7 @@ export default function Home() {
         <div className={styles.heroImageWrapper}>
           <Image 
             src="/assets/images/hero.jpg" 
-            alt="Lumière Luxury Beauty Products" 
+            alt="Baraka Luxury Beauty Products" 
             fill
             priority
             className={styles.heroImage}
@@ -75,7 +75,7 @@ export default function Home() {
         <div className={`container ${styles.storyContainer}`}>
           <div className={`${styles.storyText} fade-in`}>
             <h2 className="section-title text-left">Our Philosophy</h2>
-            <p>At Lumière, we believe that true beauty stems from simplicity and authenticity. Our formulations are crafted with the finest natural ingredients, designed to nourish not just your skin, but your soul.</p>
+            <p>At Baraka, we believe that true beauty stems from simplicity and authenticity. Our formulations are crafted with the finest natural ingredients, designed to nourish not just your skin, but your soul.</p>
             <p>Every product is a testament to mindful luxury, bringing a moment of tranquility to your daily ritual.</p>
             <Link href="/shop" className="cta-button outline" style={{ marginTop: '1.5rem' }}>Read Our Story</Link>
           </div>

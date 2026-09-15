@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -7,7 +8,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContent}`}>
         <div className={styles.footerBrand}>
-          <h2 className="logo">Lumière</h2>
+          <Link href="/">
+            <Image src="/assets/logo.png" alt="Baraka Logo" width={120} height={150} className="logo" style={{ objectFit: 'contain', filter: 'drop-shadow(0px 4px 6px rgba(0,0,0,0.2))' }} />
+          </Link>
           <p>Pure beauty, uncompromised.</p>
         </div>
         <div className={styles.footerLinks}>
@@ -32,7 +35,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.footerBottom}>
-        <p>&copy; {new Date().getFullYear()} Lumière Beauty. All rights reserved. (Mockup)</p>
+        <p>&copy; {new Date().getFullYear()} Baraka Beauty. All rights reserved. (Mockup)</p>
       </div>
     </footer>
   );
