@@ -5,7 +5,7 @@ import { products } from '@/data/products';
 import styles from './page.module.css';
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 3);
+  const featuredProducts = products;
 
   return (
     <main>
@@ -31,27 +31,27 @@ export default function Home() {
       <section className="section-padding">
         <h2 className="section-title fade-in">Curated for You</h2>
         <div className={styles.categoryGrid}>
-          <Link href="/shop?category=Fragrance" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.1s' }}>
+          <Link href="/shop?category=Skincare" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.1s' }}>
             <div className={styles.categoryImageContainer}>
-              <Image src="/assets/images/perfume.jpg" alt="Signature Fragrances" fill />
-              <div className={styles.categoryOverlay}>
-                <h3>Fragrances</h3>
-              </div>
-            </div>
-          </Link>
-          <Link href="/shop?category=Skincare" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.2s' }}>
-            <div className={styles.categoryImageContainer}>
-              <Image src="/assets/images/cream.jpg" alt="Nourishing Creams" fill />
+              <Image src="/assets/images/snow-white-cream.jpeg" alt="Luxury Skincare" fill />
               <div className={styles.categoryOverlay}>
                 <h3>Skincare</h3>
               </div>
             </div>
           </Link>
-          <Link href="/shop?category=Bath+%26+Body" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.3s' }}>
+          <Link href="/shop?category=Bath+%26+Body" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.2s' }}>
             <div className={styles.categoryImageContainer}>
-              <Image src="/assets/images/soap.jpg" alt="Artisanal Soaps" fill />
+              <Image src="/assets/images/hibiscus-soap.jpeg" alt="Artisanal Soaps" fill />
               <div className={styles.categoryOverlay}>
                 <h3>Bath & Body</h3>
+              </div>
+            </div>
+          </Link>
+          <Link href="/shop" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.3s' }}>
+            <div className={styles.categoryImageContainer}>
+              <Image src="/assets/images/lemon-soap.jpeg" alt="Artisan Soaps & Creams" fill />
+              <div className={styles.categoryOverlay}>
+                <h3>All Collection</h3>
               </div>
             </div>
           </Link>

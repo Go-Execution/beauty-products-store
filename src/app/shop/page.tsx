@@ -11,7 +11,7 @@ function ShopContent() {
   const initialCategory = searchParams.get('category') || 'All';
   
   const [filter, setFilter] = useState(initialCategory);
-  const categories = ['All', 'Fragrance', 'Skincare', 'Bath & Body'];
+  const categories = ['All', 'Skincare', 'Bath & Body'];
 
   const filteredProducts = filter === 'All' 
     ? products 
@@ -59,7 +59,7 @@ function ShopContent() {
 
 export default function Shop() {
   return (
-    <Suspense fallback={<div className="container page-wrapper"><p style={{marginTop: '4rem', textAlign: 'center'}}>Loading...</p></div>}>
+    <Suspense fallback={<div className="container page-wrapper"><p style={{marginTop: '2rem', textAlign: 'center'}}>Loading...</p></div>}>
       <ShopContent />
     </Suspense>
   );

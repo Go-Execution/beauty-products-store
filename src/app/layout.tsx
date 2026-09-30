@@ -19,7 +19,7 @@ export default function RootLayout({
       <body>
         <CartProvider>
           <Navbar />
-          <div className="page-wrapper">
+          <div className="site-wrapper">
             {children}
           </div>
           <Footer />

@@ -14,7 +14,7 @@ export default function Cart() {
     setMounted(true);
   }, []);
 
-  if (!mounted) return <main className="container page-wrapper"><div style={{marginTop: '8rem', textAlign: 'center'}}>Loading...</div></main>;
+  if (!mounted) return <main className="container page-wrapper"><div style={{marginTop: '2rem', textAlign: 'center'}}>Loading...</div></main>;
 
   if (cart.length === 0) {
     return (

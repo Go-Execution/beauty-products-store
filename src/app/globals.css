@@ -97,12 +97,13 @@ h1, h2, h3, .logo {
 .page-title {
     font-size: 3.5rem;
     text-align: center;
-    margin: 4rem 0 2rem;
+    margin: 1.5rem 0 2rem;
 }
 
 @media (max-width: 600px) {
     .page-title {
         font-size: 2.5rem;
+        margin: 1rem 0 1.5rem;
     }
 }
 
@@ -158,7 +159,22 @@ h1, h2, h3, .logo {
     to { opacity: 1; }
 }
 
-/* Ensure minimum height for pages to push footer down */
-.page-wrapper {
+/* Main content wrapper */
+.site-wrapper {
     min-height: 70vh;
 }
+
+/* Sub-pages wrapper to prevent overlap with fixed navbar */
+.page-wrapper {
+    min-height: 70vh;
+    padding-top: 11rem;
+    padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+    .page-wrapper {
+        padding-top: 9.5rem;
+        padding-bottom: 3.5rem;
+    }
+}
+
