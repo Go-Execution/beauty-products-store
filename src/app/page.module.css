@@ -52,9 +52,9 @@
 
 .categoryGrid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    padding: 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
     max-width: 1400px;
     margin: 0 auto;
 }

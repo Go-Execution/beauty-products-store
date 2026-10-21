@@ -16,9 +16,12 @@ export default function Footer() {
         <div className={styles.footerLinks}>
           <div className={styles.linkColumn}>
             <h4>Shop</h4>
-            <Link href="/shop">All Products</Link>
-            <Link href="/shop?category=Skincare">Skincare</Link>
-            <Link href="/shop?category=Bath+%26+Body">Bath & Body</Link>
+            <Link href="/shop">All Collection</Link>
+            <Link href="/shop?category=Hair+Care">Hair Care</Link>
+            <Link href="/shop?category=Perfumes+%26+Oils">Perfumes & Oils</Link>
+            <Link href="/shop?category=Body+Care">Body Care</Link>
+            <Link href="/shop?category=Artisan+Soaps">Artisan Soaps</Link>
+            <Link href="/shop?category=Candles">Decorative Candles</Link>
           </div>
           <div className={styles.linkColumn}>
             <h4>Company</h4>

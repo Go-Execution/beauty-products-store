@@ -1,70 +1,272 @@
 export interface Product {
   id: string;
   name: string;
-  category: string;
+  category: 'Hair Care' | 'Perfumes & Oils' | 'Body Care' | 'Artisan Soaps' | 'Candles' | string;
   price: number;
+  size?: string;
   image: string;
+  secondaryImage?: string;
   description: string;
   longDescription: string;
   ingredients?: string;
-  howToUse?: string;
+  directions?: string;
+  howToUse?: string; // alias for compatibility
 }
 
+export const CATEGORIES = [
+  'All',
+  'Hair Care',
+  'Perfumes & Oils',
+  'Body Care',
+  'Artisan Soaps',
+  'Candles'
+] as const;
+
+export type Category = (typeof CATEGORIES)[number];
+
 export const products: Product[] = [
+  // 🌿 1. Hair Care Products
   {
     id: '1',
-    name: 'WOW Snow White Body Treatment Cream',
-    category: 'Skincare',
-    price: 39.99,
-    image: '/assets/images/snow-white-cream.jpeg',
-    description: 'Intensive Brightening & Exfoliating Treatment',
-    longDescription: 'A luxury, spa-grade intensive body treatment formulated with pure citric soap, sweet almond oil, shea butter, vegetable glycerin, vitamins E & C, Jergens lotion, and pure rose water. Designed for profound brightening and all-over skin resurfacing, it delivers velvety softness and exceptional luminosity.',
-    ingredients: 'Pure Citric Soap, Sweet Almond Oil, Raw Shea Butter, Vegetable Glycerin, Vitamin E, Vitamin C, Jergens Nourishing Lotion, Pure Rose Water.',
-    howToUse: '1. Apply 1 even layer across your body; let dry, then apply a second layer.\n2. Allow it to sit for 1 to 2 hours.\n3. Thoroughly scrub and buff with a Moroccan luffa (kessa).\n4. Rinse thoroughly with warm water, then gently wash and rinse your body clean.'
+    name: 'Amazing Hair Growth Shampoo',
+    category: 'Hair Care',
+    price: 13.99,
+    size: '1.235 lb (~20 oz)',
+    image: '/assets/images/products/shampoo.jpeg',
+    description: 'Pure botanical hair growth shampoo formulated without harsh parabens or sulfates.',
+    longDescription: 'A pure, restorative hair growth shampoo handcrafted with nourishing aloe vera and nutrient-dense botanical oils. Gently purifies hair and scalp while stimulating robust, resilient hair follicles. Free from parabens, sulfates, and synthetic chemicals.',
+    ingredients: 'Shampoo base, Aloe Vera Gel, Vitamin E Oil, Lavender Essential Oil, Jojoba Oil. (No Paraben, No Sulfate, No Chemical)',
+    directions: 'Apply small amounts on wet hair, massage into scalp, and rinse. Shake well before use.',
+    howToUse: 'Apply small amounts on wet hair, massage into scalp, and rinse. Shake well before use.'
   },
   {
     id: '2',
-    name: 'Lemon Radiance Soap',
-    category: 'Bath & Body',
-    price: 6.99,
-    image: '/assets/images/lemon-soap.jpeg',
-    description: 'Pure Citric Oil Face & Body Bar',
-    longDescription: 'Handcrafted artisan lemon soap infused with pure citric oil. Specially crafted to deeply clarify pores, even skin tone, and bring an irresistible natural radiance and youthful glow to your complexion.',
-    ingredients: 'Pure Citric Oil, Natural Saponified Vegetable Oils, Organic Glycerin.',
-    howToUse: 'Work into a silky lather with warm water. Gently massage onto damp facial and body skin in circular motions, then rinse thoroughly.'
+    name: 'Miracle Hair Oil',
+    category: 'Hair Care',
+    price: 12.99,
+    size: '0.540 lb (~8.6 oz)',
+    image: '/assets/images/products/hair-oil.jpeg',
+    description: 'Potent botanical hair and scalp infusion powered by rosemary, castor oil, and biotin.',
+    longDescription: 'An ultra-nourishing elixir of cold-pressed botanical oils, rosemary, lavender, and biotin designed to awaken dormant follicles, invigorate circulation, strengthen hair strands, and seal in luminous shine.',
+    ingredients: 'Coconut Oil, Castor Oil, Rosemary, Lavender Oil, Sesame Oil, Vitamin E, Jojoba Oil, Biotin Oil, Wheat Germ Oil, Black Pepper Oil.',
+    directions: 'Apply to hair and scalp, leave it on for 2 hours, and wash out with shampoo.',
+    howToUse: 'Apply to hair and scalp, leave it on for 2 hours, and wash out with shampoo.'
   },
   {
     id: '3',
-    name: 'Hibiscus Moisturizing Soap',
-    category: 'Bath & Body',
-    price: 9.99,
-    image: '/assets/images/hibiscus-soap.jpeg',
-    description: 'Brightening Botanical Bar',
-    longDescription: 'An artisan botanical soap enriched with natural crushed hibiscus and gentle glycerin. Packed with natural AHAs and antioxidants, it works to gently polish away dullness, brighten your face, and lock in deep moisture without stripping the skin.',
-    ingredients: 'Natural Crushed Hibiscus, Pure Vegetable Glycerin Soap Base.',
-    howToUse: 'Lather between hands with warm water. Smooth the creamy foam over face and body, allowing botanical nutrients to nourish your skin before rinsing clean.'
+    name: 'Amazing Cream for Frizzy Hair',
+    category: 'Hair Care',
+    price: 12.99,
+    size: '0.816 lb (~13 oz)',
+    image: '/assets/images/products/frizzy-hair-cream.jpeg',
+    description: 'Nourishing anti-frizz leave-in treatment that smooths, seals moisture, and adds glossy softness.',
+    longDescription: 'Specially whipped to tame stubborn flyaways and frizz while restoring touchable softness. Works deep into cuticles to lock in moisture, enhance manageability, and protect strands against daily humidity.',
+    ingredients: 'Vaseline, Coconut Oil, Glycerin, Vitamin E Oil.',
+    directions: 'Work a small amount into damp or dry hair, focusing on mid-lengths and frizzy ends.',
+    howToUse: 'Work a small amount into damp or dry hair, focusing on mid-lengths and frizzy ends.'
   },
   {
     id: '4',
-    name: 'Coffee & Cocoa Artisan Soap',
-    category: 'Bath & Body',
-    price: 6.99,
-    image: '/assets/images/coffee-soap.jpeg',
-    description: 'Handcrafted Exfoliating Bar',
-    longDescription: 'Pure handcrafted artisan soap lovingly made with finely ground coffee, real cocoa, and nourishing glycerin soap—formulated with zero harsh additives or synthetic fillers. Stimulates microcirculation, gently buffs away dry skin, and leaves your skin feeling remarkably soft, supple, and radiant.',
-    ingredients: 'Real Coffee Grounds, Pure Cocoa, Natural Glycerin Soap Base (no additional artificial ingredients).',
-    howToUse: 'Glide the bar gently over wet skin for stimulating physical exfoliation, or lather in palms for a gentler wash. Rinse thoroughly with water.'
+    name: 'Rapunzel Hair Growth Spray',
+    category: 'Hair Care',
+    price: 11.99,
+    size: '0.916 lb (~14.6 oz)',
+    image: '/assets/images/products/rapunzel-spray.jpeg',
+    description: 'Traditional fermented rice water, flaxseed, and spiced herbal botanical growth spray.',
+    longDescription: 'Rooted in ancestral beauty rituals, this energizing spray blends fermented rice water, nutrient-rich flaxseed, black seed, and warm spiced extracts to fortify hair fibers, reduce shedding, and stimulate long, thick growth.',
+    ingredients: 'Flaxseed, Fermented Rice Water, Black Seed, Bay Leaves, Cinnamon Stick, Cloves.',
+    directions: 'Shake well before use. Spray evenly on hair and scalp, leave for 2 hours, then wash with shampoo. Use 3 times a week. Keep refrigerated.',
+    howToUse: 'Shake well before use. Spray evenly on hair and scalp, leave for 2 hours, then wash with shampoo. Use 3 times a week. Keep refrigerated.'
   },
+
+  // 🌸 2. Perfumes & Fragrance Oils
   {
     id: '5',
-    name: 'Frankincense & Aloe Vera Soap',
-    category: 'Bath & Body',
+    name: '"Smell Me" Roll-On Oil Perfume',
+    category: 'Perfumes & Oils',
+    price: 10.99,
+    size: '10 ml Roll-on',
+    image: '/assets/images/products/smell-me-rollon.jpeg',
+    description: 'Concentrated artisanal perfume oil featuring romantic florals, noble attar, and sweet rose.',
+    longDescription: 'A pure, concentrated oil perfume crafted with moisturizing sweet almond oil and an opulent blend of rose, Sabaya, Ahlam Al Arab, and Anfar oils. Glides gently over pulse points for an alluring, long-lasting scent that evolves throughout the day.',
+    ingredients: 'Almond Oil, Rose Oil, Sabaya Oil, Ahlam Al Arab Oil, Anfar Oil.',
+    directions: 'Roll onto pulse points (wrists, neck, and behind ears).',
+    howToUse: 'Roll onto pulse points (wrists, neck, and behind ears).'
+  },
+  {
+    id: '6',
+    name: '"Smells Great" Artisanal Perfume',
+    category: 'Perfumes & Oils',
+    price: 11.99,
+    size: 'Signature Bottle with Gold Cap',
+    image: '/assets/images/products/smells-great-perfume.jpeg',
+    description: 'Handcrafted artisanal personal fragrance featuring calming lavender and warm sandalwood.',
+    longDescription: 'Handcrafted artisanal personal fragrance (not an oil perfume). Masterfully blended with notes of calming French lavender, regal Australian sandalwood, and sumptuous Ehsas oils over a crisp, fine fragrance base.',
+    ingredients: 'Ehsas Oil, Lavender Oil, Sandalwood Oil, fine perfume base top.',
+    directions: 'Mist onto pulse points and clothing for an elegant, all-day personal fragrance.',
+    howToUse: 'Mist onto pulse points and clothing for an elegant, all-day personal fragrance.'
+  },
+
+  // ✨ 3. Body & Skin Care
+  {
+    id: '7',
+    name: 'Snow White Body Treatment Cream',
+    category: 'Body Care',
+    price: 39.99,
+    size: '1.999 lb (~32 oz jar)',
+    image: '/assets/images/products/snow-white-cream.jpeg',
+    description: 'Intensive spa-grade brightening & skin resurfacing Moroccan body treatment cream.',
+    longDescription: 'A luxurious, intensive brightening treatment cream formulated with citric soap, pure shea butter, vitamin E, raw honey, and rose water. Deeply exfoliates, softens rough patches, and restores an even, radiant porcelain glow across the entire body.',
+    ingredients: 'Citric Soap, Jergens, Shea Butter, Vitamin E Oil, Honey, Rose Water.',
+    directions: 'Apply one layer, let dry, then apply another layer. Use with a little warm water and scrub with a Moroccan loofah. Use daily or every other day. Keep refrigerated.',
+    howToUse: 'Apply one layer, let dry, then apply another layer. Use with a little warm water and scrub with a Moroccan loofah. Use daily or every other day. Keep refrigerated.'
+  },
+  {
+    id: '8',
+    name: 'Arab Oud Delicate Body Cream',
+    category: 'Body Care',
+    price: 12.99,
+    size: '0.366 lb (~5.8 oz)',
+    image: '/assets/images/products/arab-oud-cream.jpeg',
+    description: 'Velvety body cream infused with authentic agarwood oud, sandalwood, and musk.',
+    longDescription: 'An enchanting, velvety cream crafted specifically for sensitive areas, neckline, and intimate pulse points. Imbued with pure agarwood oud, soothing sandalwood, musk powder, and Sensul oils for velvety skin and an intoxicating aroma.',
+    ingredients: 'Oud Oil, Sandalwood Oil, Anfar Oil, Musk Powder, Vaseline, Sensul Oil.',
+    directions: 'Apply gently around delicate/private areas, neckline, and under the chest.',
+    howToUse: 'Apply gently around delicate/private areas, neckline, and under the chest.'
+  },
+
+  // 🧼 4. Artisan Soaps & Cleansers
+  {
+    id: '9',
+    name: 'Faucet Hanging Hand Soap (Rope Cluster)',
+    category: 'Artisan Soaps',
     price: 9.99,
-    image: '/assets/images/frankincense.jpeg',
-    description: 'Softening & Radiance Facial Bar',
-    longDescription: 'Infused with ancient sacred frankincense liquid, cooling aloe vera, and gentle glycerin. This restorative artisan bar calms redness, restores hydration, and promotes skin renewal, leaving your face feeling soft, revitalized, and naturally radiant.',
-    ingredients: 'Frankincense Liquid Extract, Pure Aloe Vera, Natural Glycerin Soap Base.',
-    howToUse: 'Lather gently with lukewarm water. Massage the velvety lather over your face and neck, then rinse well.'
+    size: 'Handcrafted Rope Cluster',
+    image: '/assets/images/products/faucet-soap-1.jpeg',
+    secondaryImage: '/assets/images/products/faucet-soap-2.jpeg',
+    description: 'Handcrafted pink beaded cluster soap on a braided jute rope designed to hang on your faucet.',
+    longDescription: 'An ingenious and beautiful addition to any vanity or sink. Handcrafted pink beaded cluster soap strung on natural braided jute rope, designed to hang directly on your kitchen or bathroom faucet for neat, mess-free handwashing.',
+    ingredients: 'Pure vegetable glycerin soap base, natural mineral colorants, essential fragrance.',
+    directions: 'Hang directly on your kitchen or bathroom faucet. Lather with wet hands directly onto the soap beads and rinse.',
+    howToUse: 'Hang directly on your kitchen or bathroom faucet. Lather with wet hands directly onto the soap beads and rinse.'
+  },
+  {
+    id: '10',
+    name: 'Hibiscus Glow Facial Soap',
+    category: 'Artisan Soaps',
+    price: 9.99,
+    size: 'Artisan Bar',
+    image: '/assets/images/products/hibiscus-soap.jpeg',
+    description: 'Brightens face, evens out skin tone, and leaves skin deeply moisturized.',
+    longDescription: 'Handcrafted artisan botanical bar infused with natural crushed hibiscus and plant glycerin. Naturally rich in AHAs and antioxidants, it gently buffs away dullness while leaving your complexion clear, luminous, and supple.',
+    ingredients: 'Pure Hibiscus, plant glycerin soap.',
+    directions: 'Lather between hands with warm water, gently massage onto face in circular motions, and rinse clean.',
+    howToUse: 'Lather between hands with warm water, gently massage onto face in circular motions, and rinse clean.'
+  },
+  {
+    id: '11',
+    name: 'Frankincense Radiance Soap',
+    category: 'Artisan Soaps',
+    price: 9.99,
+    size: 'Artisan Bar',
+    image: '/assets/images/products/frankincense-soap.jpeg',
+    description: 'Calms, restores softness, and gives skin a refreshed, radiant finish.',
+    longDescription: 'Crafted with precious frankincense liquid, restorative aloe vera, and pure glycerin soap. Soothes inflammation, calms irritation, and encourages skin regeneration for a supple, refined texture.',
+    ingredients: 'Frankincense liquid, glycerin soap & aloe vera.',
+    directions: 'Work into a velvety lather with warm water, apply over damp skin, and rinse cleanly.',
+    howToUse: 'Work into a velvety lather with warm water, apply over damp skin, and rinse cleanly.'
+  },
+  {
+    id: '12',
+    name: 'Coffee & Cocoa Exfoliating Soap',
+    category: 'Artisan Soaps',
+    price: 9.99,
+    size: 'Artisan Bar',
+    image: '/assets/images/products/coffee-cocoa-soap.jpeg',
+    description: 'Gentle natural exfoliation to soften and brighten the skin.',
+    longDescription: 'Handcrafted artisan soap combining freshly ground coffee beans and pure cocoa with natural glycerin soap. Delivers stimulating physical exfoliation that buffs away dead skin cells, softens dry elbows and heels, and leaves an irresistible warmth.',
+    ingredients: 'Handcrafted coffee, cocoa, and pure glycerin soap with no additional chemicals.',
+    directions: 'Gently massage bar over wet skin to naturally exfoliate and stimulate circulation. Rinse with warm water.',
+    howToUse: 'Gently massage bar over wet skin to naturally exfoliate and stimulate circulation. Rinse with warm water.'
+  },
+  {
+    id: '13',
+    name: 'Pure Lemon Radiance Soap',
+    category: 'Artisan Soaps',
+    price: 9.99,
+    size: 'Artisan Bar',
+    image: '/assets/images/products/lemon-radiance-soap.jpeg',
+    description: 'Clarifies pores and restores a youthful natural glow.',
+    longDescription: 'Infused with cold-pressed pure citric oil and a gentle plant glycerin soap base. Cleanses deep within the pores, regulates excess oil, and leaves your skin feeling invigorated, vibrant, and radiantly smooth.',
+    ingredients: 'Pure citric oil & plant glycerin soap base.',
+    directions: 'Lather with water, gently massage over skin to cleanse, and rinse thoroughly.',
+    howToUse: 'Lather with water, gently massage over skin to cleanse, and rinse thoroughly.'
+  },
+
+  // 🕯️ 5. Decorative Fishbowl Gel & Wax Candles
+  {
+    id: '14',
+    name: 'Purple Floral & Pearl Glass Candle',
+    category: 'Candles',
+    price: 9.99,
+    size: 'Decorative Glass Fishbowl',
+    image: '/assets/images/products/candle-purple-floral.jpeg',
+    description: 'Decorative glass bowl with preserved purple botanicals, luminous pearls, and scented wax.',
+    longDescription: 'A breathtaking decorative artisan candle poured into a clear glass fishbowl. Features preserved purple botanicals and lustrous pearls encased in crystal clear gel, crowned with aromatic purple wax for a soothing visual and aromatic centerpiece.',
+    ingredients: 'Scented wax, crystal gel, preserved purple botanicals, luminous pearls, cotton wick.',
+    directions: 'Trim wick to 1/4 inch before lighting. Burn within sight on a heat-resistant surface away from drafts.',
+    howToUse: 'Trim wick to 1/4 inch before lighting. Burn within sight on a heat-resistant surface away from drafts.'
+  },
+  {
+    id: '15',
+    name: 'Amethyst & Glass Gems Candle',
+    category: 'Candles',
+    price: 9.99,
+    size: 'Decorative Glass Fishbowl',
+    image: '/assets/images/products/candle-amethyst-gems.jpeg',
+    description: 'Purple scented wax floating over colorful glass gems and crystal gel.',
+    longDescription: 'Artisan handcrafted candle featuring scented purple wax resting gracefully atop colorful polished glass gems submerged in luminous crystal gel. Illuminates with shimmering multi-faceted reflections when lit.',
+    ingredients: 'Purple scented wax, crystal gel, colorful glass gems, fragrance oils, lead-free wick.',
+    directions: 'Place on a heat-safe surface. Light wick and allow fragrance to disperse evenly.',
+    howToUse: 'Place on a heat-safe surface. Light wick and allow fragrance to disperse evenly.'
+  },
+  {
+    id: '16',
+    name: 'Golden Pearl Glow Candle',
+    category: 'Candles',
+    price: 9.99,
+    size: 'Decorative Glass Fishbowl',
+    image: '/assets/images/products/candle-golden-pearl.jpeg',
+    description: 'Rich aromatic wax over golden pearls in crystal gel.',
+    longDescription: 'Elegance in a glass bowl: handcrafted with shimmering golden pearls suspended in ultra-clear gel, topped with a generous layer of fragrant poured wax. Radiates warmth and opulence throughout any room.',
+    ingredients: 'Aromatic wax, golden pearls, crystal gel, premium fragrance oils, cotton wick.',
+    directions: 'Keep wick trimmed. Burn 2-3 hours per session for optimal scent throw and longevity.',
+    howToUse: 'Keep wick trimmed. Burn 2-3 hours per session for optimal scent throw and longevity.'
+  },
+  {
+    id: '17',
+    name: 'Sunburst Pearl Glass Candle',
+    category: 'Candles',
+    price: 9.99,
+    size: 'Decorative Glass Fishbowl',
+    image: '/assets/images/products/candle-sunburst-pearl.jpeg',
+    description: 'Sunny citrus-colored wax over pearls and iridescent crystal marbles.',
+    longDescription: 'A burst of warm sunshine captured in glass. Scented sunburst-orange wax poured over pearlescent spheres and iridescent crystal marbles in clear gel. Brings an uplifting aura, cheerful light, and fresh fragrance.',
+    ingredients: 'Citrus-scented colored wax, pearls, iridescent crystal marbles, clear gel, cotton wick.',
+    directions: 'Trim wick before lighting. Keep away from flammable objects and breezy areas.',
+    howToUse: 'Trim wick before lighting. Keep away from flammable objects and breezy areas.'
+  },
+  {
+    id: '18',
+    name: 'Ocean Azure & Pearl Glass Candle',
+    category: 'Candles',
+    price: 9.99,
+    size: 'Decorative Glass Fishbowl',
+    image: '/assets/images/products/candle-ocean-azure.jpeg',
+    description: 'Deep ocean blue wax over preserved blue petals and pearls in clear gel.',
+    longDescription: 'Inspired by tranquil coastal waters. Deep ocean blue scented wax floats over hand-placed blue botanical petals and glistening white pearls in transparent gel. Transports your senses to a peaceful sanctuary.',
+    ingredients: 'Ocean breeze scented wax, preserved blue petals, white pearls, crystal gel, cotton wick.',
+    directions: 'Burn on a level, fire-resistant surface. Extinguish gently when finished.',
+    howToUse: 'Burn on a level, fire-resistant surface. Extinguish gently when finished.'
   }
 ];
-

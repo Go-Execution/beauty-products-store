@@ -1,12 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import ProductCard from '@/components/ProductCard';
-import { products } from '@/data/products';
+import StorefrontCatalog from '@/components/StorefrontCatalog';
 import styles from './page.module.css';
 
 export default function Home() {
-  const featuredProducts = products;
-
   return (
     <main>
       {/* Hero Section */}
@@ -22,51 +19,73 @@ export default function Home() {
         </div>
         <div className={`${styles.heroContent} fade-in`}>
           <h1 className={styles.heroTitle}>Elevate Your Ritual</h1>
-          <p className={styles.heroSubtitle}>Discover the essence of pure, uncompromised beauty.</p>
-          <Link href="/shop" className="cta-button">Explore Collection</Link>
+          <p className={styles.heroSubtitle}>Discover the essence of pure, handcrafted beauty & wellness.</p>
+          <a href="#storefront-catalog" className="cta-button">Explore Collection</a>
         </div>
       </section>
 
-      {/* Categories Section */}
+      {/* Curated Categories Section */}
       <section className="section-padding">
-        <h2 className="section-title fade-in">Curated for You</h2>
-        <div className={styles.categoryGrid}>
-          <Link href="/shop?category=Skincare" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.1s' }}>
-            <div className={styles.categoryImageContainer}>
-              <Image src="/assets/images/snow-white-cream.jpeg" alt="Luxury Skincare" fill />
-              <div className={styles.categoryOverlay}>
-                <h3>Skincare</h3>
+        <div className="container">
+          <h2 className="section-title fade-in">Curated Handcrafted Categories</h2>
+          <div className={styles.categoryGrid}>
+            <Link href="/shop?category=Hair+Care" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.1s' }}>
+              <div className={styles.categoryImageContainer}>
+                <Image src="/assets/images/products/shampoo.jpeg" alt="Handcrafted Hair Care" fill style={{ objectFit: 'cover' }} />
+                <div className={styles.categoryOverlay}>
+                  <h3>Hair Care</h3>
+                </div>
               </div>
-            </div>
-          </Link>
-          <Link href="/shop?category=Bath+%26+Body" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.2s' }}>
-            <div className={styles.categoryImageContainer}>
-              <Image src="/assets/images/hibiscus-soap.jpeg" alt="Artisanal Soaps" fill />
-              <div className={styles.categoryOverlay}>
-                <h3>Bath & Body</h3>
+            </Link>
+
+            <Link href="/shop?category=Perfumes+%26+Oils" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.15s' }}>
+              <div className={styles.categoryImageContainer}>
+                <Image src="/assets/images/products/smell-me-rollon.jpeg" alt="Perfumes & Oils" fill style={{ objectFit: 'cover' }} />
+                <div className={styles.categoryOverlay}>
+                  <h3>Perfumes & Oils</h3>
+                </div>
               </div>
-            </div>
-          </Link>
-          <Link href="/shop" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.3s' }}>
-            <div className={styles.categoryImageContainer}>
-              <Image src="/assets/images/lemon-soap.jpeg" alt="Artisan Soaps & Creams" fill />
-              <div className={styles.categoryOverlay}>
-                <h3>All Collection</h3>
+            </Link>
+
+            <Link href="/shop?category=Body+Care" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.2s' }}>
+              <div className={styles.categoryImageContainer}>
+                <Image src="/assets/images/products/snow-white-cream.jpeg" alt="Body Care" fill style={{ objectFit: 'cover' }} />
+                <div className={styles.categoryOverlay}>
+                  <h3>Body Care</h3>
+                </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+
+            <Link href="/shop?category=Artisan+Soaps" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.25s' }}>
+              <div className={styles.categoryImageContainer}>
+                <Image src="/assets/images/products/faucet-soap-1.jpeg" alt="Artisan Soaps" fill style={{ objectFit: 'cover' }} />
+                <div className={styles.categoryOverlay}>
+                  <h3>Artisan Soaps</h3>
+                </div>
+              </div>
+            </Link>
+
+            <Link href="/shop?category=Candles" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.3s' }}>
+              <div className={styles.categoryImageContainer}>
+                <Image src="/assets/images/products/candle-purple-floral.jpeg" alt="Decorative Candles" fill style={{ objectFit: 'cover' }} />
+                <div className={styles.categoryOverlay}>
+                  <h3>Candles</h3>
+                </div>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="section-padding bg-light">
+      {/* Storefront Products with Category Tabs & Quick View */}
+      <section id="storefront-catalog" className="section-padding bg-light">
         <div className="container">
-          <h2 className="section-title fade-in">Featured Essentials</h2>
-          <div className={styles.productGrid}>
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <h2 className="section-title fade-in">Handcrafted Essentials</h2>
+          <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: '-1.5rem', marginBottom: '2.5rem' }}>
+            Pure ingredients, authentic recipes, and artisanal care in every product.
+          </p>
+
+          <StorefrontCatalog initialCategory="All" />
         </div>
       </section>
       
@@ -76,8 +95,8 @@ export default function Home() {
           <div className={`${styles.storyText} fade-in`}>
             <h2 className="section-title text-left">Our Philosophy</h2>
             <p>At Baraka, we believe that true beauty stems from simplicity and authenticity. Our formulations are crafted with the finest natural ingredients, designed to nourish not just your skin, but your soul.</p>
-            <p>Every product is a testament to mindful luxury, bringing a moment of tranquility to your daily ritual.</p>
-            <Link href="/shop" className="cta-button outline" style={{ marginTop: '1.5rem' }}>Read Our Story</Link>
+            <p>From organic botanicals and cold-pressed oils to decorative crystal gel candles, every product is a testament to mindful luxury, bringing a moment of tranquility to your daily ritual.</p>
+            <Link href="/shop" className="cta-button outline" style={{ marginTop: '1.5rem' }}>View Entire Shop</Link>
           </div>
           <div className={`${styles.storyImage} fade-in`} style={{ transitionDelay: '0.2s' }}>
             <div style={{ position: 'relative', width: '100%', aspectRatio: '4/5' }}>

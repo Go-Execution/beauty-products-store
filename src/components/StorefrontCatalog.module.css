@@ -1,0 +1,117 @@
+.catalogSection {
+    width: 100%;
+}
+
+.filterWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.tabsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding: 0.5rem;
+    background: #F4F2EE;
+    border-radius: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tabBtn {
+    background: transparent;
+    border: none;
+    padding: 0.65rem 1.35rem;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #666666;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.tabBtn:hover {
+    color: #1a1a1a;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.tabBtnActive {
+    background: #1a1a1a !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.countPill {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.06);
+    color: inherit;
+    font-weight: 600;
+}
+
+.tabBtnActive .countPill {
+    background: rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+}
+
+.resultsMeta {
+    margin-top: 1.25rem;
+    font-size: 0.85rem;
+    color: #777777;
+    letter-spacing: 0.03em;
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: #FAF9F6;
+    border-radius: 10px;
+    color: #666666;
+}
+
+.resetBtn {
+    margin-top: 1rem;
+    background: #1a1a1a;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .tabsContainer {
+        border-radius: 16px;
+        gap: 0.4rem;
+        width: 100%;
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabBtn {
+        white-space: nowrap;
+        padding: 0.55rem 1rem;
+        font-size: 0.82rem;
+    }
+
+    .productsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 1.25rem;
+    }
+}

@@ -50,6 +50,11 @@ export default function Cart() {
                 </div>
                 <div>
                   <Link href={`/product/${item.id}`} className={styles.itemName}>{item.name}</Link>
+                  {item.size && (
+                    <p style={{ fontSize: '0.8rem', color: '#777', margin: '0.2rem 0' }}>
+                      Size: {item.size}
+                    </p>
+                  )}
                   <p className={styles.itemPrice}>${item.price.toFixed(2)}</p>
                   <button 
                     className={styles.removeBtn}
