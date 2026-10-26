@@ -39,6 +39,7 @@ export default function Navbar() {
           <div className={`${styles.navLinks} ${mobileMenuOpen ? styles.active : ''}`}>
             <Link href="/" onClick={closeMenu}>Home</Link>
             <Link href="/shop" onClick={closeMenu}>Shop</Link>
+            <Link href="/contact" onClick={closeMenu}>Contact</Link>
           </div>
         </div>
         

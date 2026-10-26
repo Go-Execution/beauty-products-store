@@ -111,6 +111,41 @@
     color: var(--text-muted);
 }
 
+.orderSupportCard {
+    margin-top: 2.5rem;
+    padding: 1.5rem 2rem;
+    background: #FDFBF8;
+    border: 1px solid #E8DFD8;
+    border-radius: 6px;
+    display: inline-block;
+    max-width: 520px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+}
+
+.orderSupportTitle {
+    font-size: 1.05rem !important;
+    font-weight: 600;
+    color: var(--text-main) !important;
+    margin-bottom: 0.4rem;
+}
+
+.orderSupportText {
+    font-size: 0.95rem !important;
+    color: var(--text-muted) !important;
+    margin: 0 !important;
+}
+
+.supportEmailLink {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.supportEmailLink:hover {
+    color: var(--text-main);
+}
+
 @media (max-width: 900px) {
     .checkoutContainer {
         grid-template-columns: 1fr;

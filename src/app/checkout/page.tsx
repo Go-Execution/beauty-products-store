@@ -23,9 +23,20 @@ export default function Checkout() {
         <div className={styles.successMessage}>
           <h1 className="page-title fade-in">Order Confirmed</h1>
           <p>Thank you for your purchase. Your elegant ritual begins soon.</p>
-          <Link href="/" className="cta-button" style={{ marginTop: '2rem' }}>
-            Return Home
-          </Link>
+          <div className={styles.orderSupportCard}>
+            <p className={styles.orderSupportTitle}>Need assistance with your order?</p>
+            <p className={styles.orderSupportText}>
+              Reach our customer concierge anytime at{' '}
+              <a href="mailto:info@barakabeautystore.com" className={styles.supportEmailLink}>
+                info@barakabeautystore.com
+              </a>
+            </p>
+          </div>
+          <div style={{ marginTop: '2.5rem' }}>
+            <Link href="/" className="cta-button">
+              Return Home
+            </Link>
+          </div>
         </div>
       </main>
     );
