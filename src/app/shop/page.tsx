@@ -45,7 +45,7 @@ function ShopContent() {
     <main className="container page-wrapper">
       <h1 className="page-title fade-in">Handcrafted Collection</h1>
       <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginTop: '-1.5rem', marginBottom: '2.5rem' }}>
-        Artisanal hair growth formulas, luxury perfumes, botanical skincare, faucet cluster soaps, and crystal gel candles.
+        Artisanal hair growth formulas, luxury perfumes, botanical skincare, handcrafted botanical soaps, and crystal gel candles.
       </p>
       
       {/* Category Tabs */}

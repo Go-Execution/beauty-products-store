@@ -136,20 +136,7 @@ export const products: Product[] = [
   },
 
   // 🧼 4. Artisan Soaps & Cleansers
-  {
-    id: '9',
-    name: 'Faucet Hanging Hand Soap (Rope Cluster)',
-    category: 'Artisan Soaps',
-    price: 9.99,
-    size: 'Handcrafted Rope Cluster',
-    image: '/assets/images/products/faucet-soap-1.jpeg',
-    secondaryImage: '/assets/images/products/faucet-soap-2.jpeg',
-    description: 'Handcrafted pink beaded cluster soap on a braided jute rope designed to hang on your faucet.',
-    longDescription: 'An ingenious and beautiful addition to any vanity or sink. Handcrafted pink beaded cluster soap strung on natural braided jute rope, designed to hang directly on your kitchen or bathroom faucet for neat, mess-free handwashing.',
-    ingredients: 'Pure vegetable glycerin soap base, natural mineral colorants, essential fragrance.',
-    directions: 'Hang directly on your kitchen or bathroom faucet. Lather with wet hands directly onto the soap beads and rinse.',
-    howToUse: 'Hang directly on your kitchen or bathroom faucet. Lather with wet hands directly onto the soap beads and rinse.'
-  },
+
   {
     id: '10',
     name: 'Hibiscus Glow Facial Soap',

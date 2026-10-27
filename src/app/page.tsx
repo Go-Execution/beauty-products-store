@@ -58,7 +58,7 @@ export default function Home() {
 
             <Link href="/shop?category=Artisan+Soaps" className={`${styles.categoryCard} fade-in`} style={{ transitionDelay: '0.25s' }}>
               <div className={styles.categoryImageContainer}>
-                <Image src="/assets/images/products/faucet-soap-1.jpeg" alt="Artisan Soaps" fill style={{ objectFit: 'cover' }} />
+                <Image src="/assets/images/products/hibiscus-soap.jpeg" alt="Artisan Soaps" fill style={{ objectFit: 'cover' }} />
                 <div className={styles.categoryOverlay}>
                   <h3>Artisan Soaps</h3>
                 </div>
