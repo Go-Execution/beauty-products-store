@@ -44,7 +44,13 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles.footerBottom}>
-        <p>&copy; {new Date().getFullYear()} Baraka Beauty. All rights reserved. • Inquiries: <a href="mailto:info@barakabeautystore.com" style={{ color: '#CCC', textDecoration: 'underline' }}>info@barakabeautystore.com</a></p>
+        <p>
+          &copy; {new Date().getFullYear()} Baraka Beauty. All rights reserved. • Inquiries:{' '}
+          <a href="mailto:info@barakabeautystore.com" style={{ color: '#CCC', textDecoration: 'underline' }}>
+            info@barakabeautystore.com
+          </a>{' '}
+          • <Link href="/admin" style={{ color: '#777', textDecoration: 'none', fontSize: '0.8rem' }}>Admin Portal</Link>
+        </p>
       </div>
     </footer>
   );
