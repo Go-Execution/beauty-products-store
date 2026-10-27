@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Product, products, CATEGORIES, Category } from '@/data/products';
+import { Product, CATEGORIES, Category } from '@/data/products';
+import { useLiveProducts } from '@/lib/products';
 import ProductCard from '@/components/ProductCard';
 import QuickViewModal from '@/components/QuickViewModal';
 import styles from './StorefrontCatalog.module.css';
@@ -19,13 +20,14 @@ export default function StorefrontCatalog({
   subtitle,
   limit
 }: StorefrontCatalogProps) {
+  const { products: liveProducts } = useLiveProducts();
   const [activeCategory, setActiveCategory] = useState<string>(initialCategory);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [isQuickViewOpen, setIsQuickViewOpen] = useState<boolean>(false);
 
   const filteredProducts = activeCategory === 'All'
-    ? products
-    : products.filter(p => p.category === activeCategory);
+    ? liveProducts
+    : liveProducts.filter(p => p.category === activeCategory);
 
   const displayedProducts = limit ? filteredProducts.slice(0, limit) : filteredProducts;
 
@@ -39,8 +41,8 @@ export default function StorefrontCatalog({
   };
 
   const getCategoryCount = (category: string) => {
-    if (category === 'All') return products.length;
-    return products.filter(p => p.category === category).length;
+    if (category === 'All') return liveProducts.length;
+    return liveProducts.filter(p => p.category === category).length;
   };
 
   return (

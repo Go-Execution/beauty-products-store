@@ -4,14 +4,19 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { products } from '@/data/products';
+import { products, ProductVariant } from '@/data/products';
+import { useLiveProducts } from '@/lib/products';
 import { useCart } from '@/context/CartContext';
 import styles from './ProductDetail.module.css';
 
 export default function ProductDetailClient({ id }: { id: string }) {
-  const product = products.find(p => p.id === id);
+  const { products: liveProducts } = useLiveProducts();
+  const product = liveProducts.find(p => p.id === id) || products.find(p => p.id === id);
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
+    (product?.variants && product.variants.length > 0) ? product.variants[0] : null
+  );
   const [selectedImage, setSelectedImage] = useState(product?.image || '');
   const [added, setAdded] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
@@ -21,8 +26,19 @@ export default function ProductDetailClient({ id }: { id: string }) {
     notFound();
   }
 
+  const currentPrice = selectedVariant ? selectedVariant.price : product.price;
+
   const handleAddToCart = () => {
-    addToCart(product, quantity);
+    const itemToAdd = selectedVariant
+      ? {
+          ...product,
+          id: `${product.id}_${selectedVariant.id}`,
+          name: `${product.name} (${selectedVariant.name})`,
+          price: selectedVariant.price,
+          size: selectedVariant.size || product.size
+        }
+      : product;
+    addToCart(itemToAdd, quantity);
     setAdded(true);
     setTimeout(() => {
       setAdded(false);
@@ -145,12 +161,58 @@ export default function ProductDetailClient({ id }: { id: string }) {
           <h1 className={styles.title}>{product.name}</h1>
           
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem' }}>
-            <p className={styles.price}>${product.price.toFixed(2)}</p>
+            <p className={styles.price}>${currentPrice.toFixed(2)}</p>
+            {product.compareAtPrice && product.compareAtPrice > currentPrice && (
+              <span style={{ textDecoration: 'line-through', color: '#999', fontSize: '1.1rem' }}>
+                ${product.compareAtPrice.toFixed(2)}
+              </span>
+            )}
           </div>
           
           <div className={styles.description}>
             <p>{product.longDescription || product.description}</p>
           </div>
+
+          {product.variants && product.variants.length > 0 && (
+            <div style={{ margin: '1.5rem 0' }}>
+              <label style={{ 
+                fontSize: '0.8rem', 
+                textTransform: 'uppercase', 
+                letterSpacing: '0.08em', 
+                color: 'var(--text-muted)', 
+                display: 'block', 
+                marginBottom: '0.6rem', 
+                fontWeight: 600 
+              }}>
+                Select Option / Variant:
+              </label>
+              <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                {product.variants.map((v) => {
+                  const isSelected = selectedVariant?.id === v.id;
+                  return (
+                    <button
+                      key={v.id}
+                      type="button"
+                      onClick={() => setSelectedVariant(v)}
+                      style={{
+                        padding: '0.55rem 1.1rem',
+                        border: isSelected ? '1.5px solid var(--text-main)' : '1px solid #D1D5DB',
+                        background: isSelected ? 'var(--text-main)' : '#FFF',
+                        color: isSelected ? '#FFF' : 'var(--text-main)',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        fontSize: '0.88rem',
+                        fontWeight: isSelected ? 600 : 500,
+                        transition: 'all 0.2s ease'
+                      }}
+                    >
+                      {v.name} • ${v.price.toFixed(2)}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          )}
           
           <div className={styles.actions}>
             <div className={styles.quantitySelector}>

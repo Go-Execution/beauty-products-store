@@ -459,9 +459,278 @@
     border-bottom: none;
 }
 
+/* Product CRUD Controls */
+.productsToolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.addProductBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--text-main);
+    color: var(--white);
+    padding: 0.6rem 1.3rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.addProductBtn:hover {
+    background: var(--accent);
+    color: var(--text-main);
+    transform: translateY(-1px);
+}
+
+.actionBtnGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.editBtn {
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    color: #1D4ED8;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.editBtn:hover {
+    background: #1D4ED8;
+    color: var(--white);
+}
+
+.deleteBtn {
+    background: #FEF2F2;
+    border: 1px solid #FECACA;
+    color: #DC2626;
+    padding: 0.35rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.deleteBtn:hover {
+    background: #DC2626;
+    color: var(--white);
+}
+
+/* Product Form Modal */
+.productModalContent {
+    background: var(--white);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2.5rem;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.formGridTwoCol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+}
+
+.fullCol {
+    grid-column: 1 / -1;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.fieldGroup label {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+}
+
+.fieldGroup input,
+.fieldGroup select,
+.fieldGroup textarea {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 4px;
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    outline: none;
+    transition: all 0.2s;
+    background: #FCFCFB;
+}
+
+.fieldGroup input:focus,
+.fieldGroup select:focus,
+.fieldGroup textarea:focus {
+    border-color: var(--text-main);
+    background: var(--white);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.04);
+}
+
+.imagePreviewSection {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.previewThumbnail {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #eee;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+/* Variants Builder */
+.variantsCard {
+    background: #FAF8F5;
+    border: 1px solid #ECE3D9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.2rem 0;
+}
+
+.variantsCardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.variantsCardHeader h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.variantRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 0.8rem;
+    align-items: center;
+    margin-bottom: 0.8rem;
+}
+
+.variantRemoveBtn {
+    background: #FEE2E2;
+    border: none;
+    color: #DC2626;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.variantRemoveBtn:hover {
+    background: #DC2626;
+    color: var(--white);
+}
+
+.addVariantBtn {
+    background: transparent;
+    border: 1px dashed rgba(0, 0, 0, 0.3);
+    color: var(--text-main);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.addVariantBtn:hover {
+    border-color: var(--text-main);
+    background: var(--white);
+}
+
+.modalFooter {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cancelBtn {
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0.65rem 1.4rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cancelBtn:hover {
+    background: #F3F4F6;
+}
+
+.confirmDeleteCard {
+    background: var(--white);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 480px;
+    padding: 2.2rem;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.deleteIconCircle {
+    width: 52px;
+    height: 52px;
+    background: #FEE2E2;
+    color: #DC2626;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 900px) {
     .statsGrid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .formGridTwoCol {
+        grid-template-columns: 1fr;
+    }
+    .variantRow {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
     }
 }
 
@@ -469,7 +738,8 @@
     .statsGrid {
         grid-template-columns: 1fr;
     }
-    .modalContent {
+    .modalContent, .productModalContent {
         padding: 1.5rem;
     }
 }
+

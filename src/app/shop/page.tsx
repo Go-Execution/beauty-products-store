@@ -4,12 +4,14 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import ProductCard from '@/components/ProductCard';
 import QuickViewModal from '@/components/QuickViewModal';
-import { Product, products, CATEGORIES } from '@/data/products';
+import { Product, CATEGORIES } from '@/data/products';
+import { useLiveProducts } from '@/lib/products';
 import styles from './Shop.module.css';
 
 function ShopContent() {
   const searchParams = useSearchParams();
   const rawCategory = searchParams.get('category');
+  const { products: liveProducts } = useLiveProducts();
   
   const [filter, setFilter] = useState<string>('All');
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
@@ -24,8 +26,8 @@ function ShopContent() {
   }, [rawCategory]);
 
   const filteredProducts = filter === 'All' 
-    ? products 
-    : products.filter(p => p.category === filter);
+    ? liveProducts 
+    : liveProducts.filter(p => p.category === filter);
 
   const handleOpenQuickView = (product: Product) => {
     setQuickViewProduct(product);
@@ -37,8 +39,8 @@ function ShopContent() {
   };
 
   const getCategoryCount = (cat: string) => {
-    if (cat === 'All') return products.length;
-    return products.filter(p => p.category === cat).length;
+    if (cat === 'All') return liveProducts.length;
+    return liveProducts.filter(p => p.category === cat).length;
   };
 
   return (

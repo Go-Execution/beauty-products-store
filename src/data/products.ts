@@ -1,8 +1,17 @@
+export interface ProductVariant {
+  id: string;
+  name: string; // e.g., "1 Bar (Standard)", "3-Bar Bundle", "100ml Bottle"
+  price: number;
+  size?: string;
+  stockQuantity?: number;
+}
+
 export interface Product {
   id: string;
   name: string;
   category: 'Hair Care' | 'Perfumes & Oils' | 'Body Care' | 'Artisan Soaps' | 'Candles' | string;
   price: number;
+  compareAtPrice?: number;
   size?: string;
   image: string;
   secondaryImage?: string;
@@ -11,6 +20,9 @@ export interface Product {
   ingredients?: string;
   directions?: string;
   howToUse?: string; // alias for compatibility
+  variants?: ProductVariant[];
+  stockQuantity?: number;
+  isActive?: boolean;
 }
 
 export const CATEGORIES = [

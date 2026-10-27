@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS public.products (
     name TEXT NOT NULL,
     category TEXT NOT NULL,
     price NUMERIC(10, 2) NOT NULL,
+    compare_at_price NUMERIC(10, 2),
     size TEXT,
     image TEXT NOT NULL,
     secondary_image TEXT,
@@ -19,6 +20,7 @@ CREATE TABLE IF NOT EXISTS public.products (
     long_description TEXT NOT NULL,
     ingredients TEXT,
     directions TEXT,
+    variants JSONB DEFAULT '[]'::jsonb,
     stock_quantity INTEGER DEFAULT 50,
     is_active BOOLEAN DEFAULT true,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL
@@ -66,6 +68,16 @@ ALTER TABLE public.order_items ENABLE ROW LEVEL SECURITY;
 -- Allow public read access to products
 CREATE POLICY "Allow public read access to products" 
 ON public.products FOR SELECT USING (true);
+
+-- Allow public product insertion, update, delete (Admin operations)
+CREATE POLICY "Allow public product insertion" 
+ON public.products FOR INSERT WITH CHECK (true);
+
+CREATE POLICY "Allow public product update" 
+ON public.products FOR UPDATE USING (true);
+
+CREATE POLICY "Allow public product delete" 
+ON public.products FOR DELETE USING (true);
 
 -- Allow public checkout order insertion
 CREATE POLICY "Allow public order insertion" 
