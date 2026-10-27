@@ -66,34 +66,43 @@ ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.order_items ENABLE ROW LEVEL SECURITY;
 
 -- Allow public read access to products
+DROP POLICY IF EXISTS "Allow public read access to products" ON public.products;
 CREATE POLICY "Allow public read access to products" 
 ON public.products FOR SELECT USING (true);
 
 -- Allow public product insertion, update, delete (Admin operations)
+DROP POLICY IF EXISTS "Allow public product insertion" ON public.products;
 CREATE POLICY "Allow public product insertion" 
 ON public.products FOR INSERT WITH CHECK (true);
 
+DROP POLICY IF EXISTS "Allow public product update" ON public.products;
 CREATE POLICY "Allow public product update" 
 ON public.products FOR UPDATE USING (true);
 
+DROP POLICY IF EXISTS "Allow public product delete" ON public.products;
 CREATE POLICY "Allow public product delete" 
 ON public.products FOR DELETE USING (true);
 
 -- Allow public checkout order insertion
+DROP POLICY IF EXISTS "Allow public order insertion" ON public.orders;
 CREATE POLICY "Allow public order insertion" 
 ON public.orders FOR INSERT WITH CHECK (true);
 
 -- Allow public order items insertion
+DROP POLICY IF EXISTS "Allow public order_items insertion" ON public.order_items;
 CREATE POLICY "Allow public order_items insertion" 
 ON public.order_items FOR INSERT WITH CHECK (true);
 
 -- Allow reading orders (for admin / order lookups)
+DROP POLICY IF EXISTS "Allow public order read" ON public.orders;
 CREATE POLICY "Allow public order read" 
 ON public.orders FOR SELECT USING (true);
 
+DROP POLICY IF EXISTS "Allow public order update" ON public.orders;
 CREATE POLICY "Allow public order update" 
 ON public.orders FOR UPDATE USING (true);
 
+DROP POLICY IF EXISTS "Allow public order_items read" ON public.order_items;
 CREATE POLICY "Allow public order_items read" 
 ON public.order_items FOR SELECT USING (true);
 
