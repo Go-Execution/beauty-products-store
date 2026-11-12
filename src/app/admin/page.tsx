@@ -12,6 +12,7 @@ import styles from './Admin.module.css';
 
 // Preset beauty images for quick selection when creating products
 const PRESET_IMAGES = [
+  { label: 'Wow Cream for Hair', url: '/assets/images/products/wow-cream-hair.jpeg' },
   { label: 'Lemon Radiance Soap', url: '/assets/images/products/lemon-radiance-soap.jpeg' },
   { label: 'Hibiscus Glow Soap', url: '/assets/images/products/hibiscus-soap.jpeg' },
   { label: 'Coffee & Cocoa Soap', url: '/assets/images/products/coffee-cocoa-soap.jpeg' },

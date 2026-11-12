@@ -90,6 +90,19 @@ export const products: Product[] = [
     directions: 'Shake well before use. Spray evenly on hair and scalp, leave for 2 hours, then wash with shampoo. Use 3 times a week. Keep refrigerated.',
     howToUse: 'Shake well before use. Spray evenly on hair and scalp, leave for 2 hours, then wash with shampoo. Use 3 times a week. Keep refrigerated.'
   },
+  {
+    id: '19',
+    name: 'Wow Cream for Hair',
+    category: 'Hair Care',
+    price: 10.99,
+    size: '6.13 oz Jar',
+    image: '/assets/images/products/wow-cream-hair.jpeg',
+    description: 'Intensive botanical hair nourishment cream formulated with shea butter, lanolin, and herbal oils to accelerate healthy hair growth.',
+    longDescription: 'Handcrafted botanical hair growth cream enriched with pure shea butter, lanolin cream, aloe vera, flaxseed, and cold-pressed botanical oils (castor, rosemary, lavender, vitamin E, and jojoba). Deeply penetrates follicles to promote faster hair growth, strengthen weak strands, and restore silky moisture overnight.',
+    ingredients: 'Shea butter, Lanolin cream, Aloe vera, Castor oil, Flaxseed, Rosemary oil, Lavender, Vitamin E oil, Jojoba oil.',
+    directions: 'Leave it on your hair and wash it the next day with water.',
+    howToUse: 'Leave it on your hair and wash it the next day with water.'
+  },
 
   // 🌸 2. Perfumes & Fragrance Oils
   {

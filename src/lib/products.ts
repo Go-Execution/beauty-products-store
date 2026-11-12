@@ -60,8 +60,12 @@ export const fetchProducts = async (): Promise<Product[]> => {
           stockQuantity: row.stock_quantity ?? 50,
           isActive: row.is_active ?? true
         }));
-        saveLocalProducts(mapped);
-        return mapped;
+        // Merge any default codebase products not yet created in DB
+        const dbIds = new Set(mapped.map(p => p.id));
+        const missingDefaults = defaultProducts.filter(p => !dbIds.has(p.id));
+        const combined = [...mapped, ...missingDefaults];
+        saveLocalProducts(combined);
+        return combined;
       }
     } catch (e) {
       console.warn('Could not fetch products from Supabase, using local catalog:', e);
